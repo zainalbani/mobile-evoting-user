@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">E-Voting</string>
+    <string name="text_warn_login">Pastikan kamu sudah mempunyai akun. Jika belum, \nklik tombol REGISTRASI dibawah.</string>
 </resources>
