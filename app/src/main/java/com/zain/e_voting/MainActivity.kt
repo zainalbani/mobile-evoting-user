@@ -15,5 +15,9 @@ class MainActivity : AppCompatActivity() {
             val dialogFragment = LoginActivity()
             dialogFragment.show(supportFragmentManager, "dialog_login")
         }
+        binding.btnRegisterMain.setOnClickListener {
+            val dialogFragment = RegisterActivity()
+            dialogFragment.show(supportFragmentManager,"dialog_register")
+        }
     }
 }
