@@ -3,4 +3,5 @@
     <string name="text_warn_login">Pastikan kamu sudah mempunyai akun. Jika belum, \nklik tombol REGISTRASI dibawah.</string>
     <string name="boarding">E-VOTING\nSMK N 2 BAWANG</string>
     <string name="deskripsi_boarding">Pemilihan Calon Ketua dan Wakil Ketua OSIS SMK N 2 Bawang.\nGunakan hak pilihmu dan hindari golput!</string>
+    <string name="text_warn_register">Isilah data dibawah dengan benar agar akun dapat terdaftar. Jika sudah mempunyai akun,\nklik tombol LOGIN dibawah.</string>
 </resources>
