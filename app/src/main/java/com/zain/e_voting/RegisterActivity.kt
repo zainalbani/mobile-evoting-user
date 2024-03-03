@@ -24,5 +24,10 @@ class RegisterActivity : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.btnRegister.setOnClickListener {
+            val verificationFragment = VerificationFragment()
+            verificationFragment.show(childFragmentManager, "verif_dialog")
+        }
+
     }
 }
