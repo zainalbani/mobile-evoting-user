@@ -34,79 +34,14 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_register" />
 
     <TextView
-        android:id="@+id/tv_default_nama"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/poppins"
-        android:text="Nama Siswa"
-        app:layout_constraintStart_toStartOf="@+id/tv_warn_register"
-        app:layout_constraintTop_toBottomOf="@+id/tv_warn_register" />
-
-    <com.zain.e_voting.utils.EditTextAuth
-        android:id="@+id/et_nama_register"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:hint="Masukkan Nama Siswa"
-        android:fontFamily="@font/poppins"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/tv_warn_register"
-        app:layout_constraintStart_toStartOf="@+id/tv_warn_register"
-        app:layout_constraintTop_toBottomOf="@+id/tv_default_nama" />
-
-    <TextView
-        android:id="@+id/tv_default_nipd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/poppins"
-        android:text="NIPD"
-        app:layout_constraintStart_toStartOf="@+id/et_nama_register"
-        app:layout_constraintTop_toBottomOf="@+id/et_nama_register" />
-
-    <com.zain.e_voting.utils.EditTextAuth
-        android:id="@+id/et_nipd_register"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:hint="Masukkan NIPD"
-        android:fontFamily="@font/poppins"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/tv_warn_register"
-        app:layout_constraintStart_toStartOf="@+id/tv_warn_register"
-        app:layout_constraintTop_toBottomOf="@+id/tv_default_nipd" />
-
-    <TextView
-        android:id="@+id/tv_default_ibu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/poppins"
-        android:text="Nama Ibu"
-        app:layout_constraintStart_toStartOf="@+id/et_nipd_register"
-        app:layout_constraintTop_toBottomOf="@+id/et_nipd_register" />
-
-    <com.zain.e_voting.utils.EditTextAuth
-        android:id="@+id/et_ibu_register"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:hint="Masukkan Nama Ibu"
-        android:fontFamily="@font/poppins"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/tv_warn_register"
-        app:layout_constraintStart_toStartOf="@+id/tv_warn_register"
-        app:layout_constraintTop_toBottomOf="@+id/tv_default_ibu" />
-    <TextView
         android:id="@+id/tv_default_kelas"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppins"
-        android:text="Kelas"
-        app:layout_constraintStart_toStartOf="@+id/et_ibu_register"
-        app:layout_constraintTop_toBottomOf="@+id/et_ibu_register" />
+        android:text="Cari Data"
+        app:layout_constraintStart_toStartOf="@+id/tv_warn_register"
+        app:layout_constraintTop_toBottomOf="@+id/tv_warn_register" />
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
@@ -114,7 +49,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        android:hint="Masukkan Kelas"
+        android:hint="Cari Data Anda"
         app:boxStrokeWidth="0dp"
         app:layout_constraintEnd_toEndOf="@+id/tv_warn_register"
         app:layout_constraintStart_toStartOf="@+id/tv_warn_register"
@@ -131,6 +66,29 @@
             app:boxStrokeWidth="0dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/tv_default_wa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:layout_marginTop="8dp"
+        android:text="No Whatsapp"
+        app:layout_constraintStart_toStartOf="@+id/et_default_kelas"
+        app:layout_constraintTop_toBottomOf="@+id/et_default_kelas" />
+
+    <com.zain.e_voting.utils.EditTextAuth
+        android:id="@+id/et_wa_register"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppins"
+        android:hint="+62xxxxxxx"
+        android:padding="10dp"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/tv_warn_register"
+        app:layout_constraintStart_toStartOf="@+id/tv_warn_register"
+        app:layout_constraintTop_toBottomOf="@+id/tv_default_wa" />
+
     <com.zain.e_voting.utils.PrimaryButton
         android:id="@+id/btn_register"
         android:layout_width="300dp"
@@ -140,7 +98,7 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/et_default_kelas"
         app:layout_constraintStart_toStartOf="@+id/et_default_kelas"
-        app:layout_constraintTop_toBottomOf="@+id/et_default_kelas" />
+        app:layout_constraintTop_toBottomOf="@+id/et_wa_register" />
 
     <TextView
         android:id="@+id/tv_default_tologin"
