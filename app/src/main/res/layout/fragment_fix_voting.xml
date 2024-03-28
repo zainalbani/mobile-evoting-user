@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_fix_voting">
+
+
+    <ImageView
+        android:id="@+id/iv_warning"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/warning"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_warning"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="@string/text_warning"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/iv_warning"
+        app:layout_constraintStart_toStartOf="@+id/iv_warning"
+        app:layout_constraintTop_toBottomOf="@+id/iv_warning" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="1dp"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_warning"
+        app:layout_constraintStart_toStartOf="@+id/tv_warning"
+        app:layout_constraintTop_toBottomOf="@+id/tv_warning" />
+
+    <com.zain.e_voting.utils.PrimaryButton
+        android:id="@+id/btn_fix_no"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Tidak"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppins"
+        app:layout_constraintEnd_toStartOf="@+id/view"
+        app:layout_constraintStart_toStartOf="@+id/tv_warning"
+        app:layout_constraintTop_toBottomOf="@+id/tv_warning" />
+
+    <com.zain.e_voting.utils.PrimaryButton
+        android:id="@+id/btn_fix_yes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Ya"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppins"
+        app:layout_constraintStart_toEndOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="@+id/tv_warning"
+        app:layout_constraintTop_toBottomOf="@+id/tv_warning" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
