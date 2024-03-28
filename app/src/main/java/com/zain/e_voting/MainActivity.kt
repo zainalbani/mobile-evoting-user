@@ -1,5 +1,6 @@
 package com.zain.e_voting
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.zain.e_voting.databinding.ActivityMainBinding
@@ -18,6 +19,10 @@ class MainActivity : AppCompatActivity() {
         binding.btnRegisterMain.setOnClickListener {
             val dialogFragment = RegisterActivity()
             dialogFragment.show(supportFragmentManager,"dialog_register")
+        }
+        binding.btnVotingMain.setOnClickListener {
+            val intent = Intent(this, VotingActivity::class.java)
+            startActivity(intent)
         }
     }
 }

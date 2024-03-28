@@ -4,7 +4,7 @@
     <string name="boarding">E-VOTING\nSMK N 2 BAWANG</string>
     <string name="deskripsi_boarding">Pemilihan Calon Ketua dan Wakil Ketua OSIS SMK N 2 Bawang.\nGunakan hak pilihmu dan hindari golput!</string>
     <string name="text_warn_register">Isilah data dibawah dengan benar agar akun dapat terdaftar. Apabila data anda tidak ditemukan, silahkan menghubungi wali kelas. Jika sudah mempunyai akun,\nklik tombol LOGIN dibawah.</string>
-<!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="text_verification">Kami telah mengirimkan username dan OTP ke nomor WhatsApp +6281234657836 \n Silahkan cek WhatsApp anda, apabila terdapat kesalahan, silahkan menghubungi wali kelas</string>
 </resources>
