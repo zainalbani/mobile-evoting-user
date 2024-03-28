@@ -7,4 +7,5 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="text_verification">Kami telah mengirimkan username dan OTP ke nomor WhatsApp +6281234657836 \n Silahkan cek WhatsApp anda, apabila terdapat kesalahan, silahkan menghubungi wali kelas</string>
+    <string name="text_warning">"Apakah kamu yakin dengan pilihanmu? "</string>
 </resources>
