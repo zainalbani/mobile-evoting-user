@@ -1,0 +1,11 @@
+package com.zain.e_voting
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+
+class KandidatActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_kandidat)
+    }
+}
