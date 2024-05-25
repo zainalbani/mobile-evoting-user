@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.zain.e_voting.databinding.ActivityMainBinding
 import com.zain.e_voting.databinding.ActivityVotingBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class VotingActivity : AppCompatActivity() {
     private lateinit var binding: ActivityVotingBinding
     override fun onCreate(savedInstanceState: Bundle?) {

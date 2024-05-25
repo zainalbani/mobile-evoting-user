@@ -3,12 +3,20 @@ package com.zain.e_voting
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ViewModelProvider
 import com.zain.e_voting.databinding.ActivityMainBinding
+import com.zain.e_voting.ui.login.LoginActivity
+import com.zain.e_voting.ui.login.LoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var loginViewModel: LoginViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        loginViewModel = ViewModelProvider(this)[LoginViewModel::class.java]
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -20,9 +28,19 @@ class MainActivity : AppCompatActivity() {
             val dialogFragment = RegisterActivity()
             dialogFragment.show(supportFragmentManager,"dialog_register")
         }
-        binding.btnVotingMain.setOnClickListener {
-            val intent = Intent(this, VotingActivity::class.java)
-            startActivity(intent)
+        binding.btnKandidatMain.setOnClickListener {
+                val intent = Intent(this, KandidatActivity::class.java)
+                startActivity(intent)
+        }
+    }
+    override fun onStart() {
+        super.onStart()
+        loginViewModel.getDataStoreIsLogin().observe(this) { isLogin ->
+            if (isLogin == true) {
+                val intent = Intent(this, VotingActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+            }
         }
     }
 }
