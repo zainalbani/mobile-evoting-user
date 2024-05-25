@@ -49,11 +49,11 @@
                 android:id="@+id/paslon_3"
                 android:layout_width="300dp"
                 android:layout_height="260dp"
+                android:layout_margin="10dp"
                 android:background="@drawable/custom_radio_selector"
                 android:button="@color/white"
                 android:drawableTop="@drawable/chopperemon"
                 android:fontFamily="@font/poppins"
-                android:layout_margin="10dp"
                 android:text="Paslon 3"
                 android:textAlignment="center" />
 
