@@ -10,9 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.zain.e_voting.MainActivity
 import com.zain.e_voting.RegisterActivity
-import com.zain.e_voting.VotingActivity
+import com.zain.e_voting.ui.voting.VotingActivity
 import com.zain.e_voting.data.response.base.BaseResponse
 import com.zain.e_voting.databinding.ActivityLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -107,6 +106,7 @@ class LoginActivity : BottomSheetDialogFragment() {
                     builder.setPositiveButton("OK") { _, _ ->
                         loginViewModel.saveIsLoginStatus(true)
                         loginViewModel.saveToken(it.data?.token.toString())
+                        loginViewModel.saveNipd(it.data?.data?.nipd.toString())
                         val intent = Intent(requireContext(), VotingActivity::class.java)
                         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                         startActivity(intent)

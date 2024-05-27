@@ -8,25 +8,24 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.zain.e_voting.R
-import com.zain.e_voting.data.local.KandidatData
+import com.zain.e_voting.data.response.DataItem
 import com.zain.e_voting.databinding.ListKandidatBinding
-import okhttp3.internal.notify
 
 class VotingAdapter(private var itemClick: ListPlaceInterface) :
     RecyclerView.Adapter<VotingAdapter.ViewHolder>() {
     private var selectedPosition = -1
 
-    private val differCallback = object : DiffUtil.ItemCallback<KandidatData>() {
+    private val differCallback = object : DiffUtil.ItemCallback<DataItem>() {
         override fun areItemsTheSame(
-            oldItem: KandidatData,
-            newItem: KandidatData
+            oldItem: DataItem,
+            newItem: DataItem
         ): Boolean {
-            return oldItem.ketua == newItem.ketua
+            return oldItem.paslonId == newItem.paslonId
         }
 
         override fun areContentsTheSame(
-            oldItem: KandidatData,
-            newItem: KandidatData
+            oldItem: DataItem,
+            newItem: DataItem
         ): Boolean {
             return oldItem == newItem
         }
@@ -38,10 +37,10 @@ class VotingAdapter(private var itemClick: ListPlaceInterface) :
         RecyclerView.ViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")
-        fun bind(item: KandidatData, position: Int) {
+        fun bind(item: DataItem, position: Int) {
 
-            binding.tvKetuaVoting.text = item.ketua
-            binding.tvWakilVoting.text = item.wakil
+            binding.tvKetuaVoting.text = item.namaKetua
+            binding.tvWakilVoting.text = item.namaWakilKetua
             Glide.with(itemView.context)
                 .load(item.imageUrl)
                 .into(binding.ivKandidatVoting)
@@ -78,7 +77,7 @@ class VotingAdapter(private var itemClick: ListPlaceInterface) :
         return differ.currentList.size
     }
 
-    fun setData(data: List<KandidatData>) {
+    fun setData(data: List<DataItem?>) {
         differ.submitList(data)
     }
     fun getSelectedPosition(): Int {
