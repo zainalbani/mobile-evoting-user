@@ -21,7 +21,7 @@
             android:name=".KandidatActivity"
             android:exported="false" />
         <activity
-            android:name=".VotingActivity"
+            android:name=".ui.voting.VotingActivity"
             android:exported="false" />
         <activity
             android:name=".RegisterActivity"

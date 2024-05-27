@@ -14,6 +14,9 @@ class DatastoreManager(@ApplicationContext val context: Context) {
     val getToken: Flow<String> = context.dataStore.data.map {
         it[TOKEN_KEY] ?: ""
     }
+    val getNipd: Flow<String> = context.dataStore.data.map {
+        it[NIPD_KEY] ?: ""
+    }
 
 
     val getIsLogin: Flow<Boolean> = context.dataStore.data.map {
@@ -23,6 +26,12 @@ class DatastoreManager(@ApplicationContext val context: Context) {
     suspend fun saveToken(token: String) {
         context.dataStore.edit {
             it[TOKEN_KEY] = token
+        }
+    }
+
+    suspend fun saveNipd(nipd: String) {
+        context.dataStore.edit {
+            it[NIPD_KEY] = nipd
         }
     }
 
@@ -44,10 +53,16 @@ class DatastoreManager(@ApplicationContext val context: Context) {
             it.remove(TOKEN_KEY)
         }
     }
+    suspend fun removeNipd() {
+        context.dataStore.edit {
+            it.remove(NIPD_KEY)
+        }
+    }
 
     companion object {
         private const val DATASTORE_NAME = "preferences"
         private val TOKEN_KEY = stringPreferencesKey("token_key")
+        private val NIPD_KEY = stringPreferencesKey("nipd_key")
         private val IS_LOGIN_KEY = booleanPreferencesKey("is_login_key")
         private val Context.dataStore by preferencesDataStore(
             name = DATASTORE_NAME

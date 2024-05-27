@@ -69,12 +69,25 @@ class LoginViewModel @Inject constructor(
         }
     }
 
+    fun saveNipd(nipd: String) {
+        viewModelScope.launch {
+            pref.saveNipd(nipd)
+        }
+    }
     fun getDataStoreIsLogin(): LiveData<Boolean> {
         return pref.getIsLogin.asLiveData()
+    }
+    fun getNipd(): LiveData<String> {
+        return pref.getNipd.asLiveData()
     }
     fun removeToken() {
         viewModelScope.launch {
             pref.removeToken()
+        }
+    }
+    fun removeNipd() {
+        viewModelScope.launch {
+            pref.removeNipd()
         }
     }
     fun removeIsLoginStatus() {
