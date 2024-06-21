@@ -1,20 +1,18 @@
 package com.zain.e_voting
 
-import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
 import com.zain.e_voting.data.response.base.BaseResponse
 import com.zain.e_voting.databinding.FragmentFixVotingBinding
-import com.zain.e_voting.databinding.FragmentVerificationBinding
 import com.zain.e_voting.ui.login.LoginViewModel
 import com.zain.e_voting.ui.voting.VotingViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,6 +24,7 @@ class FixVotingFragment : DialogFragment() {
     private val binding get() = _binding!!
     private lateinit var loginViewModel: LoginViewModel
     private lateinit var votingViewModel: VotingViewModel
+    private var hasSetResult = false
     override fun onStart() {
         super.onStart()
         dialog!!.window
@@ -52,7 +51,40 @@ class FixVotingFragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnFixYes.setOnClickListener {
-            setResult()
+            val id = arguments?.getString("paslon_id")
+            loginViewModel.getNipd().observe(viewLifecycleOwner) { nipd ->
+                if (id != null && nipd != null) {
+                    votingViewModel.updateVoting(nipd, id)
+                }
+            }
+            loginViewModel.removeNipd()
+            loginViewModel.removeIsLoginStatus()
+            votingViewModel.updateResult.observe(this) {
+                when (it) {
+
+                    is BaseResponse.Loading -> {
+                        binding.progressBar.visibility = View.VISIBLE
+                    }
+
+                    is BaseResponse.Success -> {
+                        binding.progressBar.visibility = View.GONE
+
+                        Toast.makeText(requireContext(), "${it.data?.message}", Toast.LENGTH_SHORT)
+                            .show()
+                        val intent = Intent(requireContext(), MainActivity::class.java)
+                        startActivity(intent)
+                    }
+
+                    is BaseResponse.Error -> {
+                        binding.progressBar.visibility = View.GONE
+                        Toast.makeText(requireContext(), "${it.msg}", Toast.LENGTH_SHORT).show()
+                    }
+
+                    else -> {
+                    }
+                }
+            }
+
         }
         binding.btnFixNo.setOnClickListener {
             dismiss()
@@ -61,56 +93,16 @@ class FixVotingFragment : DialogFragment() {
 
     private fun setResult() {
         val id = arguments?.getString("paslon_id")
-        loginViewModel.getNipd().observe(viewLifecycleOwner){nipd ->
+        loginViewModel.getNipd().observe(viewLifecycleOwner) { nipd ->
             if (id != null) {
                 votingViewModel.updateVoting(nipd, id)
             }
         }
+    }
 
-        votingViewModel.updateResult.observe(this) {
-            when (it) {
-
-                is BaseResponse.Loading -> {
-                    binding.progressBar.visibility = View.VISIBLE
-                }
-
-                is BaseResponse.Success -> {
-                    binding.progressBar.visibility = View.GONE
-
-                    val builder = AlertDialog.Builder(requireContext())
-                    builder.setTitle("Success")
-                    builder.setMessage(it.data?.message)
-
-                    builder.setPositiveButton("OK") { _, _ ->
-
-                        loginViewModel.removeToken()
-                        loginViewModel.removeIsLoginStatus()
-                        loginViewModel.removeNipd()
-                        val intent = Intent(requireContext(), MainActivity::class.java)
-                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                        startActivity(intent)
-                    }
-                    val dialog = builder.create()
-                    dialog.show()
-                }
-
-                is BaseResponse.Error -> {
-                    binding.progressBar.visibility = View.GONE
-                    val builder = AlertDialog.Builder(requireContext())
-                    builder.setTitle("Error")
-                    builder.setMessage(it.msg)
-
-                    builder.setPositiveButton("OK") { _, _ ->
-
-                    }
-                    val dialog = builder.create()
-                    dialog.show()
-                }
-
-                else -> {
-                }
-            }
-        }
+    override fun onDestroy() {
+        super.onDestroy()
+        dismiss()
     }
 
     fun Int.toPx(requireContext: Context): Int =

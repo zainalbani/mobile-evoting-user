@@ -6,87 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".KandidatActivity">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_paslon_1"
-        android:layout_width="300dp"
-        android:layout_height="260dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/custom_radio_normal"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/list_kandidat" />
 
-        <ImageView
-            android:layout_width="250dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center_horizontal"
-            android:scaleType="centerInside"
-            android:src="@drawable/usopp" />
-
-        <TextView
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|bottom"
-            android:layout_marginBottom="20dp"
-            android:gravity="center"
-            android:text="Paslon 1"
-            android:fontFamily="@font/poppins_bold"/>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_paslon_2"
-        android:layout_width="300dp"
-        android:layout_height="260dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/custom_radio_normal"
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:translationZ="90dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_paslon_1">
-
-        <ImageView
-            android:layout_width="250dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center_horizontal"
-            android:scaleType="centerInside"
-            android:src="@drawable/usopp" />
-
-        <TextView
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|bottom"
-            android:layout_marginBottom="20dp"
-            android:gravity="center"
-            android:text="Paslon 2"
-            android:fontFamily="@font/poppins_bold"/>
-
-    </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_paslon_3"
-        android:layout_width="300dp"
-        android:layout_height="260dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/custom_radio_normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_paslon_2">
-
-        <ImageView
-            android:layout_width="250dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center_horizontal"
-            android:scaleType="centerInside"
-            android:src="@drawable/usopp" />
-
-        <TextView
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|bottom"
-            android:layout_marginBottom="20dp"
-            android:gravity="center"
-            android:text="Paslon 3"
-            android:fontFamily="@font/poppins_bold"/>
-
-    </androidx.cardview.widget.CardView>
-
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,13 +7,11 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.zain.e_voting.R
 import com.zain.e_voting.data.response.DataItem
 import com.zain.e_voting.databinding.ListKandidatBinding
 
-class VotingAdapter() :
-    RecyclerView.Adapter<VotingAdapter.ViewHolder>() {
-    private var selectedPosition = -1
+class KandidatAdapter(private var itemClick: ListKandidatInterface) :
+    RecyclerView.Adapter<KandidatAdapter.ViewHolder>() {
 
     private val differCallback = object : DiffUtil.ItemCallback<DataItem>() {
         override fun areItemsTheSame(
@@ -45,18 +43,9 @@ class VotingAdapter() :
                 .load(item.imageUrl)
                 .into(binding.ivKandidatVoting)
 
-            val backgroundDrawable = if (position == selectedPosition){
-                R.drawable.custom_radio_selected
-            } else{
-                R.drawable.custom_radio_normal
-            }
-            binding.cardKandidatVoting.setBackgroundResource(backgroundDrawable)
+            itemView.setOnClickListener {
+                itemClick.kandidat(item.paslonId.toString())
 
-            itemView.setOnClickListener{
-                val previousSelectedPosition = selectedPosition
-                selectedPosition = adapterPosition
-                notifyItemChanged(previousSelectedPosition)
-                notifyItemChanged(selectedPosition)
             }
         }
 
@@ -68,7 +57,7 @@ class VotingAdapter() :
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: VotingAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: KandidatAdapter.ViewHolder, position: Int) {
         val result = differ.currentList[position]
         holder.bind(result, position)
     }
@@ -80,8 +69,9 @@ class VotingAdapter() :
     fun setData(data: List<DataItem?>) {
         differ.submitList(data)
     }
-    fun getSelectedPosition(): Int {
-        return selectedPosition
+
+    interface ListKandidatInterface {
+        fun kandidat(id: String)
     }
 
 }

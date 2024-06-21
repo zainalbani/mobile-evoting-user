@@ -11,7 +11,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tv_paslon_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -22,7 +22,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/iv_profile_kandidat"
             android:layout_width="350dp"
             android:layout_height="350dp"
             android:layout_marginTop="24dp"
@@ -30,28 +30,28 @@
             android:src="@drawable/usopp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_paslon_id" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/tv_nama_ketua"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/poppins"
             android:text="Zain Al Bani Budi Prabowo"
-            app:layout_constraintEnd_toEndOf="@+id/imageView3"
-            app:layout_constraintStart_toStartOf="@+id/imageView3"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+            app:layout_constraintEnd_toEndOf="@+id/iv_profile_kandidat"
+            app:layout_constraintStart_toStartOf="@+id/iv_profile_kandidat"
+            app:layout_constraintTop_toBottomOf="@+id/iv_profile_kandidat" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/tv_nama_wakil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
             android:text="Setya Rizky Pradana"
-            app:layout_constraintEnd_toEndOf="@+id/textView3"
-            app:layout_constraintStart_toStartOf="@+id/textView3"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            app:layout_constraintEnd_toEndOf="@+id/tv_nama_ketua"
+            app:layout_constraintStart_toStartOf="@+id/tv_nama_ketua"
+            app:layout_constraintTop_toBottomOf="@+id/tv_nama_ketua" />
 
         <View
             android:id="@+id/view2"
@@ -63,7 +63,7 @@
             android:background="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_nama_wakil" />
 
         <TextView
             android:id="@+id/textView6"
@@ -88,7 +88,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/tv_visi"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
@@ -103,12 +103,12 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
             android:text="Misi"
-            app:layout_constraintEnd_toEndOf="@+id/textView8"
-            app:layout_constraintStart_toStartOf="@+id/textView8"
-            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+            app:layout_constraintEnd_toEndOf="@+id/tv_visi"
+            app:layout_constraintStart_toStartOf="@+id/tv_visi"
+            app:layout_constraintTop_toBottomOf="@+id/tv_visi" />
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/tv_misi"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
@@ -118,14 +118,27 @@
             app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/tv_youtube_link"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_bold"
             android:text="More about them"
             android:textColor="@color/blue"
-            app:layout_constraintEnd_toEndOf="@+id/textView10"
-            app:layout_constraintStart_toStartOf="@+id/textView10"
-            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+            app:layout_constraintEnd_toEndOf="@+id/tv_misi"
+            app:layout_constraintStart_toStartOf="@+id/tv_misi"
+            app:layout_constraintTop_toBottomOf="@+id/tv_misi" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:translationZ="90dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

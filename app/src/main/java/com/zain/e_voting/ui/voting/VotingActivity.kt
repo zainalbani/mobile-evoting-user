@@ -1,11 +1,15 @@
 package com.zain.e_voting.ui.voting
 
+import android.content.ContentValues.TAG
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.zain.e_voting.FixVotingActivity
 import com.zain.e_voting.FixVotingFragment
 import com.zain.e_voting.R
 import com.zain.e_voting.adapter.VotingAdapter
@@ -16,9 +20,9 @@ import com.zain.e_voting.databinding.ActivityVotingBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class VotingActivity : AppCompatActivity(), VotingAdapter.ListPlaceInterface {
+class VotingActivity : AppCompatActivity() {
     private lateinit var binding: ActivityVotingBinding
-    private val adapter = VotingAdapter(this)
+    private val adapter = VotingAdapter()
     private lateinit var votingViewModel: VotingViewModel
     private var calonList: List<DataItem> = emptyList()
 
@@ -29,17 +33,16 @@ class VotingActivity : AppCompatActivity(), VotingAdapter.ListPlaceInterface {
         setContentView(binding.root)
         setRecyclerView()
 
-
+        val nipd = intent.getStringExtra("nipd")
+        Log.d(TAG, "onCreate: $nipd")
         binding.btnSubmit.setOnClickListener {
             val selectedPosition = adapter.getSelectedPosition()
             if (selectedPosition != -1) {
                 val selectedCalon = calonList[selectedPosition]
-                val bundle = Bundle().apply {
-                    putString("paslon_id", selectedCalon.paslonId.toString())
-                }
-                val dialogFragment = FixVotingFragment()
-                dialogFragment.arguments = bundle
-                dialogFragment.show(supportFragmentManager, "dialog_fix")
+                val i = Intent(this, FixVotingActivity::class.java)
+                i.putExtra("paslon_id", selectedCalon.paslonId.toString())
+                i.putExtra("nipd", nipd)
+                startActivity(i)
             } else {
                 Toast.makeText(this, "No Option Selected", Toast.LENGTH_SHORT).show()
             }
@@ -76,9 +79,5 @@ class VotingActivity : AppCompatActivity(), VotingAdapter.ListPlaceInterface {
                 }
             }
         }
-    }
-
-    override fun place(id: String) {
-
     }
 }

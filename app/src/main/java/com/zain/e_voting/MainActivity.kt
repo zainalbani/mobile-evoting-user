@@ -21,27 +21,32 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        loginViewModel.getDataStoreIsLogin().observe(this) { isLogin ->
+            if (isLogin == true) {
+                val intent = Intent(this, VotingActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+                finish()
+            }
+        }
+
         binding.btnLoginMain.setOnClickListener {
             val dialogFragment = LoginActivity()
             dialogFragment.show(supportFragmentManager, "dialog_login")
         }
         binding.btnRegisterMain.setOnClickListener {
             val dialogFragment = RegisterActivity()
-            dialogFragment.show(supportFragmentManager,"dialog_register")
+            dialogFragment.show(supportFragmentManager, "dialog_register")
         }
         binding.btnKandidatMain.setOnClickListener {
-                val intent = Intent(this, KandidatActivity::class.java)
-                startActivity(intent)
+            val intent = Intent(this, KandidatActivity::class.java)
+            startActivity(intent)
         }
     }
-    override fun onStart() {
-        super.onStart()
-        loginViewModel.getDataStoreIsLogin().observe(this) { isLogin ->
-            if (isLogin == true) {
-                val intent = Intent(this, VotingActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                startActivity(intent)
-            }
-        }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        finish()
     }
 }

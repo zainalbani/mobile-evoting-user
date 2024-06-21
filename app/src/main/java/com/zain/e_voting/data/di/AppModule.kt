@@ -18,7 +18,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
-    private val BASE_URL = "http://192.168.12.40:8000/"
+    private val BASE_URL = "http://192.168.234.40:8000/"
 
     @Singleton
     @Provides
@@ -31,11 +31,9 @@ object AppModule {
     @Singleton
     @Provides
     fun provideOkHttp(
-        pref: DatastoreManager,
         httpLoggingInterceptor: HttpLoggingInterceptor
     ): OkHttpClient {
         return OkHttpClient.Builder()
-            .addInterceptor(AuthInterceptor(pref))
             .addInterceptor(httpLoggingInterceptor)
             .build()
     }

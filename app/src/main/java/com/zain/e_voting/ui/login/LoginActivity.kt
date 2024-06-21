@@ -1,10 +1,12 @@
 package com.zain.e_voting.ui.login
 
 import android.app.AlertDialog
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -103,11 +105,13 @@ class LoginActivity : BottomSheetDialogFragment() {
                     builder.setTitle("Success")
                     builder.setMessage(it.data?.message)
 
-                    builder.setPositiveButton("OK") { _, _ ->
+                    builder.setPositiveButton("OK") { dialog, _ ->
                         loginViewModel.saveIsLoginStatus(true)
                         loginViewModel.saveToken(it.data?.token.toString())
                         loginViewModel.saveNipd(it.data?.data?.nipd.toString())
                         val intent = Intent(requireContext(), VotingActivity::class.java)
+                        intent.putExtra("nipd", it.data?.data?.nipd.toString())
+                        Log.d(TAG, "loginResult: ${it.data?.data?.nipd.toString()}")
                         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                         startActivity(intent)
                     }

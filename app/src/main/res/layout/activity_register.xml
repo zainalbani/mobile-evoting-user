@@ -43,28 +43,27 @@
         app:layout_constraintStart_toStartOf="@+id/tv_warn_register"
         app:layout_constraintTop_toBottomOf="@+id/tv_warn_register" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
+    <com.google.android.material.search.SearchBar
         android:id="@+id/et_default_kelas"
-        android:layout_width="0dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:hint="Cari Data Anda"
-        app:boxStrokeWidth="0dp"
+        android:hint="@string/searchbar_hint"
+        android:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/tv_warn_register"
         app:layout_constraintStart_toStartOf="@+id/tv_warn_register"
-        app:layout_constraintTop_toBottomOf="@+id/tv_default_kelas">
+        app:layout_constraintTop_toBottomOf="@+id/tv_default_kelas" />
 
-        <AutoCompleteTextView
-            android:id="@+id/et_kelas_register"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_edit_text"
-            android:ellipsize="start"
-            android:inputType="none"
-            android:textSize="12sp"
-            app:boxStrokeWidth="0dp" />
-    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.search.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:hint="@string/searchbar_hint"
+        app:layout_anchor="@id/et_default_kelas"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/tv_default_wa"

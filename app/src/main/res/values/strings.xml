@@ -8,4 +8,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="text_verification">Kami telah mengirimkan username dan OTP ke nomor WhatsApp +6281234657836 \n Silahkan cek WhatsApp anda, apabila terdapat kesalahan, silahkan menghubungi wali kelas</string>
     <string name="text_warning">"Apakah kamu yakin dengan pilihanmu? "</string>
+    <string name="searchbar_hint">Cari Data Anda</string>
+    <string name="apakah_kamu_yakin_untuk_memilih_namaketua_dan_wakilketua">Apakah kamu yakin untuk memilih $ketua dan $wakilketua?\nSetelah menekan tombol Yes, maka kamu tidak bisa mengubah pilihan kamu.</string>
 </resources>

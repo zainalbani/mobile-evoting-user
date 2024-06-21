@@ -3,6 +3,7 @@ package com.zain.e_voting.data.service
 import com.zain.e_voting.data.request.LoginRequest
 import com.zain.e_voting.data.request.VotingRequest
 import com.zain.e_voting.data.response.GetAllCalonResponse
+import com.zain.e_voting.data.response.GetCalonByIdResponse
 import com.zain.e_voting.data.response.VotingResponse
 import com.zain.e_voting.data.response.login.LoginResponse
 import retrofit2.Call
@@ -26,5 +27,10 @@ interface ApiService {
         @Path("nipd") nipd: String,
         @Body paslonId: VotingRequest
     ): Call<VotingResponse>
+
+    @GET("/getcalonbyid/{paslon_id}")
+    fun getCalonById(
+        @Path("paslon_id") paslon_id: String
+    ):Call<GetCalonByIdResponse>
 
 }
