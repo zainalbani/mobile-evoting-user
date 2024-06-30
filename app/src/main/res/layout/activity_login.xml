@@ -27,7 +27,6 @@
         android:fontFamily="@font/poppins"
         android:padding="10dp"
         android:text="@string/text_warn_login"
-        android:textAlignment="center"
         android:textColor="#653d4b"
         app:layout_constraintEnd_toEndOf="@+id/tv_login"
         app:layout_constraintStart_toStartOf="@+id/tv_login"
@@ -42,8 +41,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_default_username"

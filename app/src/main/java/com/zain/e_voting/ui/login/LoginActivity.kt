@@ -16,6 +16,7 @@ import com.zain.e_voting.RegisterActivity
 import com.zain.e_voting.ui.voting.VotingActivity
 import com.zain.e_voting.data.response.base.BaseResponse
 import com.zain.e_voting.databinding.ActivityLoginBinding
+import com.zain.e_voting.ui.admin.AdminActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -54,11 +55,13 @@ class LoginActivity : BottomSheetDialogFragment() {
             dialogFragment.show(childFragmentManager, "dialog_register")
         }
     }
+
     private fun setButtonText() {
         binding.btnLogin.isEnabled =
             binding.etUsernameLogin.text != null && binding.etOtpLogin.text != null && binding.etUsernameLogin.text.toString()
                 .isNotEmpty() && binding.etOtpLogin.text.toString().isNotEmpty()
     }
+
     private fun setEditText() {
         binding.etUsernameLogin.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -90,6 +93,7 @@ class LoginActivity : BottomSheetDialogFragment() {
 
         })
     }
+
     private fun loginResult() {
         loginViewModel.loginResult.observe(this) {
             when (it) {
@@ -106,14 +110,25 @@ class LoginActivity : BottomSheetDialogFragment() {
                     builder.setMessage(it.data?.message)
 
                     builder.setPositiveButton("OK") { dialog, _ ->
+                        val role = it.data?.user?.role.toString()
+                        val nipd = it.data?.user?.nipd.toString()
+
                         loginViewModel.saveIsLoginStatus(true)
-                        loginViewModel.saveToken(it.data?.token.toString())
-                        loginViewModel.saveNipd(it.data?.data?.nipd.toString())
-                        val intent = Intent(requireContext(), VotingActivity::class.java)
-                        intent.putExtra("nipd", it.data?.data?.nipd.toString())
-                        Log.d(TAG, "loginResult: ${it.data?.data?.nipd.toString()}")
-                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                        startActivity(intent)
+                        loginViewModel.saveNipd(nipd)
+                        loginViewModel.saveRole(role)
+                        if (role == "user") {
+                            val intent = Intent(requireContext(), VotingActivity::class.java)
+                            intent.putExtra("nipd", it.data?.user?.nipd.toString())
+                            Log.d(TAG, "loginResult: ${it.data?.user?.nipd.toString()}")
+                            intent.flags =
+                                Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                            startActivity(intent)
+                        } else {
+                            val intent = Intent(requireContext(), AdminActivity::class.java)
+                            intent.flags =
+                                Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                            startActivity(intent)
+                        }
                     }
                     val dialog = builder.create()
                     dialog.show()

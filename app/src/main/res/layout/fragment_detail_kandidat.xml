@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/poppins"
-            android:text="Paslon 1"
+            android:text="Nomor Kandidat"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/poppins"
-            android:text="Zain Al Bani Budi Prabowo"
+            tools:text="Nama Ketua"
             app:layout_constraintEnd_toEndOf="@+id/iv_profile_kandidat"
             app:layout_constraintStart_toStartOf="@+id/iv_profile_kandidat"
             app:layout_constraintTop_toBottomOf="@+id/iv_profile_kandidat" />
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
-            android:text="Setya Rizky Pradana"
+            android:text="Nama Wakil Ketua"
             app:layout_constraintEnd_toEndOf="@+id/tv_nama_ketua"
             app:layout_constraintStart_toStartOf="@+id/tv_nama_ketua"
             app:layout_constraintTop_toBottomOf="@+id/tv_nama_ketua" />
@@ -138,7 +138,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:visibility="visible" />
+            tools:visibility="gone" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

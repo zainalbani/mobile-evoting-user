@@ -1,23 +1,20 @@
-package com.zain.e_voting.data.response.login
+package com.zain.e_voting.data.response
 
 import com.google.gson.annotations.SerializedName
 
-data class LoginResponse(
+data class SearhUserResponse(
+
+	@field:SerializedName("data")
+	val data: List<DataSearch?>? = null,
 
 	@field:SerializedName("message")
 	val message: String? = null,
-
-	@field:SerializedName("user")
-	val user: User? = null,
 
 	@field:SerializedName("status")
 	val status: Boolean? = null
 )
 
-data class User(
-
-	@field:SerializedName("role")
-	val role: String? = null,
+data class DataSearch(
 
 	@field:SerializedName("is_active")
 	val isActive: String? = null,
@@ -37,15 +34,15 @@ data class User(
 	@field:SerializedName("daftar")
 	val daftar: Int? = null,
 
+	@field:SerializedName("nowa")
+	val nowa: Any? = null,
+
 	@field:SerializedName("otp")
-	val otp: String? = null,
+	val otp: Any? = null,
 
 	@field:SerializedName("paslon_id")
 	val paslonId: Any? = null,
 
 	@field:SerializedName("nipd")
-	val nipd: String? = null,
-
-	@field:SerializedName("email")
-	val email: Any? = null
+	val nipd: String? = null
 )

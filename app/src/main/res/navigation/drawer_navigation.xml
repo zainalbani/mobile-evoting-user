@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_navigation"
+    app:startDestination="@id/createKandidatFragment">
+
+    <fragment
+        android:id="@+id/createKandidatFragment"
+        android:name="com.zain.e_voting.ui.admin.CreateKandidatFragment"
+        android:label="Tambah Kandidat" />
+    <fragment
+        android:id="@+id/updateKandidatFragment"
+        android:name="com.zain.e_voting.ui.admin.UpdateKandidatFragment"
+        android:label="Ubah Kandidat" />
+    <fragment
+        android:id="@+id/deleteKandidatFragment"
+        android:name="com.zain.e_voting.ui.admin.DeleteKandidatFragment"
+        android:label="Hapus Kandidat"
+        tools:layout="@layout/fragment_delete_kandidat" />
+</navigation>

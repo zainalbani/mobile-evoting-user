@@ -4,6 +4,7 @@ import com.zain.e_voting.data.request.LoginRequest
 import com.zain.e_voting.data.request.VotingRequest
 import com.zain.e_voting.data.response.GetAllCalonResponse
 import com.zain.e_voting.data.response.GetCalonByIdResponse
+import com.zain.e_voting.data.response.SearhUserResponse
 import com.zain.e_voting.data.response.VotingResponse
 import com.zain.e_voting.data.response.login.LoginResponse
 import retrofit2.Call
@@ -12,6 +13,7 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 
 interface ApiService {
@@ -32,5 +34,8 @@ interface ApiService {
     fun getCalonById(
         @Path("paslon_id") paslon_id: String
     ):Call<GetCalonByIdResponse>
+
+    @GET("/searchuser")
+    fun searchUser(@Query("keyword") keyword:String) : Call<SearhUserResponse>
 
 }

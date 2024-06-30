@@ -11,11 +11,11 @@ import kotlinx.coroutines.flow.map
 
 class DatastoreManager(@ApplicationContext val context: Context) {
 
-    val getToken: Flow<String> = context.dataStore.data.map {
-        it[TOKEN_KEY] ?: ""
-    }
     val getNipd: Flow<String> = context.dataStore.data.map {
         it[NIPD_KEY] ?: ""
+    }
+    val getRole: Flow<String> = context.dataStore.data.map {
+        it[ROLE_KEY] ?: ""
     }
 
 
@@ -35,6 +35,12 @@ class DatastoreManager(@ApplicationContext val context: Context) {
         }
     }
 
+    suspend fun saveRole(role: String) {
+        context.dataStore.edit {
+            it[ROLE_KEY] = role
+        }
+    }
+
 
     suspend fun saveIsLoginStatus(paramIsLogin: Boolean) {
         context.dataStore.edit {
@@ -48,9 +54,9 @@ class DatastoreManager(@ApplicationContext val context: Context) {
         }
     }
 
-    suspend fun removeToken() {
+    suspend fun removeRole() {
         context.dataStore.edit {
-            it.remove(TOKEN_KEY)
+            it.remove(ROLE_KEY)
         }
     }
     suspend fun removeNipd() {
@@ -63,6 +69,7 @@ class DatastoreManager(@ApplicationContext val context: Context) {
         private const val DATASTORE_NAME = "preferences"
         private val TOKEN_KEY = stringPreferencesKey("token_key")
         private val NIPD_KEY = stringPreferencesKey("nipd_key")
+        private val ROLE_KEY = stringPreferencesKey("role_key")
         private val IS_LOGIN_KEY = booleanPreferencesKey("is_login_key")
         private val Context.dataStore by preferencesDataStore(
             name = DATASTORE_NAME

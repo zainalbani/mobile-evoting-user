@@ -3,11 +3,18 @@
     <string name="text_warn_login">Pastikan kamu sudah mempunyai akun. Jika belum, \nklik tombol REGISTRASI dibawah.</string>
     <string name="boarding">E-VOTING\nSMK N 2 BAWANG</string>
     <string name="deskripsi_boarding">Pemilihan Calon Ketua dan Wakil Ketua OSIS SMK N 2 Bawang.\nGunakan hak pilihmu dan hindari golput!</string>
-    <string name="text_warn_register">Isilah data dibawah dengan benar agar akun dapat terdaftar. Apabila data anda tidak ditemukan, silahkan menghubungi wali kelas. Jika sudah mempunyai akun,\nklik tombol LOGIN dibawah.</string>
+    <string name="text_warn_register">Isilah data dibawah dengan benar agar akun dapat terdaftar. Apabila data anda tidak ditemukan, silahkan menghubungi wali kelas. Jika sudah mempunyai akun, klik tombol LOGIN dibawah.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="text_verification">Kami telah mengirimkan username dan OTP ke nomor WhatsApp +6281234657836 \n Silahkan cek WhatsApp anda, apabila terdapat kesalahan, silahkan menghubungi wali kelas</string>
     <string name="text_warning">"Apakah kamu yakin dengan pilihanmu? "</string>
     <string name="searchbar_hint">Cari Data Anda</string>
     <string name="apakah_kamu_yakin_untuk_memilih_namaketua_dan_wakilketua">Apakah kamu yakin untuk memilih $ketua dan $wakilketua?\nSetelah menekan tombol Yes, maka kamu tidak bisa mengubah pilihan kamu.</string>
+    <string name="detail">Pilih salah satu kandidat untuk melihat detail dari kandidat tersebut!</string>
+    <string name="hasilvoting">Hasil merupakan Hasil Voting sementara dan akan diupdate setiap 1 jam sekali.</string>
+    <string name="default_voting">Silahkan melakukan dan memilih kandidat sesuai dengan hati nurani!\nSetelah memilih salah satu kandidat silahkan klik tombol Submit.</string>
+    <string name="create_kandidat">Tambahkan Kandidat dengan mengisi form di bawah!</string>
+    <string name="update_kandidat">Ubah Kandidat dengan mengisi form di bawah!</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>

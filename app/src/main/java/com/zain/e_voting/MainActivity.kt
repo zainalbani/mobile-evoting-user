@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.zain.e_voting.databinding.ActivityMainBinding
+import com.zain.e_voting.ui.admin.AdminActivity
 import com.zain.e_voting.ui.login.LoginActivity
 import com.zain.e_voting.ui.login.LoginViewModel
 import com.zain.e_voting.ui.voting.VotingActivity
@@ -23,10 +24,19 @@ class MainActivity : AppCompatActivity() {
 
         loginViewModel.getDataStoreIsLogin().observe(this) { isLogin ->
             if (isLogin == true) {
-                val intent = Intent(this, VotingActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                startActivity(intent)
-                finish()
+                loginViewModel.getRole().observe(this){role ->
+                    if (role == "user"){
+                        val intent = Intent(this, VotingActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        val intent = Intent(this, AdminActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                        startActivity(intent)
+                        finish()
+                    }
+                }
             }
         }
 
@@ -40,6 +50,10 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnKandidatMain.setOnClickListener {
             val intent = Intent(this, KandidatActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnVotingMain.setOnClickListener {
+            val intent = Intent(this, HasilVotingActivity::class.java)
             startActivity(intent)
         }
     }

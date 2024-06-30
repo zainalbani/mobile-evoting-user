@@ -30,6 +30,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"
                 android:layout_marginTop="8dp"
                 android:text="Nama Ketua" />
 
@@ -39,6 +41,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"
                 android:text="Nama Wakil" />
         </LinearLayout>
 

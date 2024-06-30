@@ -26,8 +26,8 @@
         android:background="@drawable/bg_red"
         android:fontFamily="@font/poppins"
         android:padding="10dp"
+        android:justificationMode="inter_word"
         android:text="@string/text_warn_register"
-        android:textAlignment="center"
         android:textColor="#653d4b"
         app:layout_constraintEnd_toEndOf="@+id/tv_register"
         app:layout_constraintStart_toStartOf="@+id/tv_register"
@@ -43,34 +43,28 @@
         app:layout_constraintStart_toStartOf="@+id/tv_warn_register"
         app:layout_constraintTop_toBottomOf="@+id/tv_warn_register" />
 
-    <com.google.android.material.search.SearchBar
-        android:id="@+id/et_default_kelas"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/searchbar_hint"
-        android:backgroundTint="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/tv_warn_register"
-        app:layout_constraintStart_toStartOf="@+id/tv_warn_register"
-        app:layout_constraintTop_toBottomOf="@+id/tv_default_kelas" />
 
-    <com.google.android.material.search.SearchView
-        android:id="@+id/searchView"
+    <AutoCompleteTextView
+        android:id="@+id/et_default_kelas"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:hint="@string/searchbar_hint"
-        app:layout_anchor="@id/et_default_kelas"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="48dp"
+        android:background="@drawable/bg_edit_text"
+        android:fontFamily="@font/poppins"
+        android:padding="8dp"
+        android:layout_marginTop="8dp"
+        android:hint="Cari Data Anda"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/tv_warn_register"
+        app:layout_constraintStart_toStartOf="@+id/tv_default_kelas"
+        app:layout_constraintTop_toBottomOf="@+id/tv_default_kelas" />
 
 
     <TextView
         android:id="@+id/tv_default_wa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppins"
         android:text="No Whatsapp"
         app:layout_constraintStart_toStartOf="@+id/et_default_kelas"
         app:layout_constraintTop_toBottomOf="@+id/et_default_kelas" />
@@ -120,5 +114,16 @@
         app:layout_constraintEnd_toEndOf="@+id/et_default_kelas"
         app:layout_constraintStart_toStartOf="@+id/et_default_kelas"
         app:layout_constraintTop_toBottomOf="@+id/tv_default_tologin" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
