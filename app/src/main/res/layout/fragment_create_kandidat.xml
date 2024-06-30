@@ -11,18 +11,31 @@
         android:layout_height="wrap_content">
 
 
-    <TextView
-        android:id="@+id/tv_default_create_kandidat"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/poppins"
-        android:text="@string/create_kandidat"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tv_default_create_kandidat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/create_kandidat"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_jumlah"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/poppins"
+            android:text="jumlah kandidat"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_default_create_kandidat" />
 
     <TextView
         android:id="@+id/tv_default_paslon_id"
@@ -34,7 +47,7 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/tv_default_create_kandidat"
         app:layout_constraintStart_toStartOf="@+id/tv_default_create_kandidat"
-        app:layout_constraintTop_toBottomOf="@+id/tv_default_create_kandidat" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_jumlah" />
 
     <EditText
         android:id="@+id/et_nomor_kandidat"
@@ -66,7 +79,7 @@
         app:layout_constraintStart_toStartOf="@+id/et_nomor_kandidat"
         app:layout_constraintTop_toBottomOf="@+id/et_nomor_kandidat" />
 
-    <EditText
+        <EditText
         android:id="@+id/et_nama_ketua"
         android:layout_width="0dp"
         android:layout_height="48dp"
@@ -114,7 +127,7 @@
         app:layout_constraintStart_toStartOf="@+id/tv_default_nama_wakil"
         app:layout_constraintTop_toBottomOf="@+id/tv_default_nama_wakil" />
 
-    <TextView
+        <TextView
         android:id="@+id/tv_default_visi"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -144,7 +157,7 @@
         app:layout_constraintStart_toStartOf="@+id/tv_default_visi"
         app:layout_constraintTop_toBottomOf="@+id/tv_default_visi" />
 
-    <TextView
+        <TextView
         android:id="@+id/tv_default_misi"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -186,7 +199,7 @@
         app:layout_constraintStart_toStartOf="@+id/et_nama_ketua"
         app:layout_constraintTop_toBottomOf="@+id/et_misi" />
 
-    <EditText
+        <EditText
         android:id="@+id/et_link"
         android:layout_width="0dp"
         android:layout_height="48dp"
@@ -247,8 +260,18 @@
             tools:src="@tools:sample/avatars" />
 
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_default_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <com.zain.e_voting.utils.PrimaryButton
-            android:id="@+id/btn_add_anggaran"
+            android:id="@+id/btn_submit_create"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
