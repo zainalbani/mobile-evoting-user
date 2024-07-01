@@ -32,6 +32,9 @@ class FixVotingActivity : AppCompatActivity() {
         binding.btnFixNo.setOnClickListener {
             finish()
         }
+        binding.backButton.setOnClickListener {
+            finish()
+        }
 
 
     }

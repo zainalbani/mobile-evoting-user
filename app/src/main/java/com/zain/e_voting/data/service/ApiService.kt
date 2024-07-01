@@ -8,12 +8,14 @@ import com.zain.e_voting.data.response.GetCalonByIdResponse
 import com.zain.e_voting.data.response.SearhUserResponse
 import com.zain.e_voting.data.response.VotingResponse
 import com.zain.e_voting.data.response.create.CreateKandidatResponse
+import com.zain.e_voting.data.response.delete.DeleteKandidatResponse
 import com.zain.e_voting.data.response.login.LoginResponse
 import com.zain.e_voting.data.response.update.UpdateKandidatResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
@@ -74,5 +76,10 @@ interface ApiService {
         @Path("id") id: String,
         @Body request: UpdateRequest
     ): Call<UpdateKandidatResponse>
+
+    @DELETE("/deletecalon/{id}")
+    fun deleteKandidat(
+        @Path("id") id: String
+    ): Call<DeleteKandidatResponse>
 
 }

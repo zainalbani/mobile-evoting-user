@@ -7,6 +7,7 @@ import com.zain.e_voting.data.request.UpdateRequest
 import com.zain.e_voting.data.response.base.BaseResponse
 import com.zain.e_voting.data.response.base.ErrorResponse
 import com.zain.e_voting.data.response.create.CreateKandidatResponse
+import com.zain.e_voting.data.response.delete.DeleteKandidatResponse
 import com.zain.e_voting.data.response.update.UpdateKandidatResponse
 import com.zain.e_voting.data.service.ApiService
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -24,6 +25,7 @@ class AdminViewModel @Inject constructor(
 
     val createResult: MutableLiveData<BaseResponse<CreateKandidatResponse>> = MutableLiveData()
     val updateResult: MutableLiveData<BaseResponse<UpdateKandidatResponse>> = MutableLiveData()
+    val deleteResult: MutableLiveData<BaseResponse<DeleteKandidatResponse>> = MutableLiveData()
 
     fun createKandidat(
         namaKetua: RequestBody,
@@ -136,6 +138,37 @@ class AdminViewModel @Inject constructor(
 
                 override fun onFailure(call: Call<UpdateKandidatResponse>, t: Throwable) {
                     updateResult.value = BaseResponse.Error("Network Error")
+                }
+            })
+    }
+    fun deleteKandidat(
+        id: String
+    ) {
+        deleteResult.value = BaseResponse.Loading()
+        client.deleteKandidat(id)
+            .enqueue(object : Callback<DeleteKandidatResponse> {
+                override fun onResponse(
+                    call: Call<DeleteKandidatResponse>,
+                    response: Response<DeleteKandidatResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val responseBody = response.body()
+                        deleteResult.value = BaseResponse.Success(responseBody)
+                    } else {
+                        val errorBody = response.errorBody()
+                        if (errorBody != null) {
+                            val errorResponse =
+                                Gson().fromJson(errorBody.charStream(), ErrorResponse::class.java)
+                            val errorMessage = errorResponse.message
+                            deleteResult.value = BaseResponse.Error(errorMessage)
+                        } else {
+                            deleteResult.value = BaseResponse.Error("Unknown error occurred")
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<DeleteKandidatResponse>, t: Throwable) {
+                    deleteResult.value = BaseResponse.Error("Network Error")
                 }
             })
     }

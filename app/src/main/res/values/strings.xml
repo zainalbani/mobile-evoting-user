@@ -17,4 +17,5 @@
     <string name="update_kandidat">Ubah Kandidat dengan mengisi form di bawah!</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="delete_kandidat">Hapus satu kandidat dengan menekan tombol di bawah!</string>
 </resources>
