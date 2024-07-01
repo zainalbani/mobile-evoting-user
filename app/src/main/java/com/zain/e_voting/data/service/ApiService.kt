@@ -1,6 +1,7 @@
 package com.zain.e_voting.data.service
 
 import com.zain.e_voting.data.request.LoginRequest
+import com.zain.e_voting.data.request.UpdateRequest
 import com.zain.e_voting.data.request.VotingRequest
 import com.zain.e_voting.data.response.GetAllCalonResponse
 import com.zain.e_voting.data.response.GetCalonByIdResponse
@@ -58,7 +59,8 @@ interface ApiService {
 
     @Multipart
     @PUT("/editcalon/{id}")
-    fun UpdateKandidat(
+    fun updateKandidat(
+        @Path("id") id: String,
         @Part("nama_ketua") namaKetua: RequestBody,
         @Part("nama_wakil_ketua") namaWakil: RequestBody,
         @Part("visi") visi: RequestBody,
@@ -66,6 +68,11 @@ interface ApiService {
         @Part("youtube_link") link: RequestBody,
         @Part("paslon_id") paslonId: RequestBody,
         @Part image: MultipartBody.Part
+    ): Call<UpdateKandidatResponse>
+    @PUT("/updatecalon/{id}")
+    fun updateKandidatWithoutImage(
+        @Path("id") id: String,
+        @Body request: UpdateRequest
     ): Call<UpdateKandidatResponse>
 
 }

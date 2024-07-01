@@ -229,35 +229,24 @@
             app:layout_constraintStart_toStartOf="@+id/et_nama_ketua"
             app:layout_constraintTop_toBottomOf="@+id/et_link" />
 
-    <EditText
-        android:id="@+id/et_image_add"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:fontFamily="@font/poppins"
-        android:layout_marginTop="8dp"
-        android:padding="12dp"
-        android:hint="Masukkan file image "
-        android:background="@drawable/layout_edit_text"
-        android:inputType="none"
-        android:focusable="false"
-        android:maxLines="1"
-        android:textColor="@color/black"
-        android:textColorHint="#303030"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/tv_default_image"
-        app:layout_constraintStart_toStartOf="@+id/tv_default_image"
-        app:layout_constraintTop_toBottomOf="@+id/tv_default_image" />
-
-        <ImageView
-            android:id="@+id/add_photo"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="16dp"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="@+id/et_image_add"
-            app:layout_constraintStart_toStartOf="@+id/et_image_add"
-            app:layout_constraintTop_toBottomOf="@+id/et_image_add"
-            tools:src="@tools:sample/avatars" />
+        <EditText
+            android:id="@+id/et_image_add"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/layout_edit_text"
+            android:focusable="false"
+            android:fontFamily="@font/poppins"
+            android:hint="Masukkan file image "
+            android:inputType="none"
+            android:maxLines="1"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#303030"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_default_image"
+            app:layout_constraintStart_toStartOf="@+id/tv_default_image"
+            app:layout_constraintTop_toBottomOf="@+id/tv_default_image" />
 
 
         <ProgressBar
@@ -274,14 +263,14 @@
             android:id="@+id/btn_submit_create"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/poppins_medium"
             android:text="Submit"
             android:textColor="@color/white"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@+id/et_image_add"
             app:layout_constraintStart_toStartOf="@+id/et_image_add"
-            app:layout_constraintTop_toBottomOf="@+id/add_photo" />
+            app:layout_constraintTop_toBottomOf="@+id/et_image_add" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
