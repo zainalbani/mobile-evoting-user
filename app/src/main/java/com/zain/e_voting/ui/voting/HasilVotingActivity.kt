@@ -1,4 +1,4 @@
-package com.zain.e_voting
+package com.zain.e_voting.ui.voting
 
 import android.app.AlertDialog
 import android.graphics.Color
@@ -12,7 +12,6 @@ import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.zain.e_voting.data.response.base.BaseResponse
 import com.zain.e_voting.databinding.ActivityHasilVotingBinding
-import com.zain.e_voting.ui.voting.VotingViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

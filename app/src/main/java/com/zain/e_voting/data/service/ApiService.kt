@@ -1,6 +1,7 @@
 package com.zain.e_voting.data.service
 
 import com.zain.e_voting.data.request.LoginRequest
+import com.zain.e_voting.data.request.RegisterRequest
 import com.zain.e_voting.data.request.UpdateRequest
 import com.zain.e_voting.data.request.VotingRequest
 import com.zain.e_voting.data.response.GetAllCalonResponse
@@ -11,6 +12,7 @@ import com.zain.e_voting.data.response.create.CreateKandidatResponse
 import com.zain.e_voting.data.response.delete.DeleteKandidatResponse
 import com.zain.e_voting.data.response.hasil.GetAllHasilResponse
 import com.zain.e_voting.data.response.login.LoginResponse
+import com.zain.e_voting.data.response.register.RegisterResponse
 import com.zain.e_voting.data.response.update.UpdateKandidatResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -30,6 +32,9 @@ interface ApiService {
 
     @POST("/login")
     fun loginUser(@Body loginRequest: LoginRequest): Call<LoginResponse>
+
+    @POST("/register")
+    fun registerUser(@Body request: RegisterRequest): Call<RegisterResponse>
 
     @GET("/getallcalon")
     fun getAllCalon(): Call<GetAllCalonResponse>

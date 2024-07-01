@@ -9,11 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.zain.e_voting.FixVotingActivity
-import com.zain.e_voting.FixVotingFragment
-import com.zain.e_voting.R
 import com.zain.e_voting.adapter.VotingAdapter
-import com.zain.e_voting.data.local.KandidatData
 import com.zain.e_voting.data.response.DataItem
 import com.zain.e_voting.data.response.base.BaseResponse
 import com.zain.e_voting.databinding.ActivityVotingBinding
@@ -42,6 +38,8 @@ class VotingActivity : AppCompatActivity() {
                 val i = Intent(this, FixVotingActivity::class.java)
                 i.putExtra("paslon_id", selectedCalon.paslonId.toString())
                 i.putExtra("nipd", nipd)
+                i.putExtra("ketua", selectedCalon.namaKetua.toString())
+                i.putExtra("wakil", selectedCalon.namaWakilKetua.toString())
                 startActivity(i)
             } else {
                 Toast.makeText(this, "No Option Selected", Toast.LENGTH_SHORT).show()

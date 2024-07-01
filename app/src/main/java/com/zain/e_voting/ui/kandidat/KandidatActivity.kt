@@ -1,4 +1,4 @@
-package com.zain.e_voting
+package com.zain.e_voting.ui.kandidat
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,7 +7,6 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.zain.e_voting.adapter.KandidatAdapter
-import com.zain.e_voting.adapter.VotingAdapter
 import com.zain.e_voting.data.response.DataItem
 import com.zain.e_voting.data.response.base.BaseResponse
 import com.zain.e_voting.databinding.ActivityKandidatBinding

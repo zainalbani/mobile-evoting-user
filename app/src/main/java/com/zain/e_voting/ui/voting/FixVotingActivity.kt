@@ -1,4 +1,4 @@
-package com.zain.e_voting
+package com.zain.e_voting.ui.voting
 
 import android.app.AlertDialog
 import android.content.ContentValues.TAG
@@ -8,10 +8,10 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.zain.e_voting.MainActivity
 import com.zain.e_voting.data.response.base.BaseResponse
 import com.zain.e_voting.databinding.ActivityFixVotingBinding
 import com.zain.e_voting.ui.login.LoginViewModel
-import com.zain.e_voting.ui.voting.VotingViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -35,6 +35,9 @@ class FixVotingActivity : AppCompatActivity() {
         binding.backButton.setOnClickListener {
             finish()
         }
+        val ketua = intent.getStringExtra("ketua")
+        val wakil = intent.getStringExtra("wakil")
+        binding.tvDefaultFixVoting.text = "Apakah kamu yakin untuk memilih $ketua dan $wakil? \nSetelah menekan tombol Yes, maka kamu tidak bisa mengubah pilihan kamu."
 
 
     }

@@ -12,7 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.zain.e_voting.RegisterActivity
+import com.zain.e_voting.ui.register.RegisterActivity
 import com.zain.e_voting.ui.voting.VotingActivity
 import com.zain.e_voting.data.response.base.BaseResponse
 import com.zain.e_voting.databinding.ActivityLoginBinding

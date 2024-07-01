@@ -1,7 +1,6 @@
-package com.zain.e_voting
+package com.zain.e_voting.ui.register
 
 import android.R
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,10 +10,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.zain.e_voting.data.response.base.BaseResponse
-import com.zain.e_voting.databinding.ActivityLoginBinding
 import com.zain.e_voting.databinding.ActivityRegisterBinding
-import com.zain.e_voting.ui.RegisterViewModel
-import com.zain.e_voting.ui.voting.VotingViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -36,16 +32,18 @@ class RegisterActivity : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnRegister.setOnClickListener {
-            val verificationFragment = VerificationFragment()
-            verificationFragment.show(childFragmentManager, "verif_dialog")
+            val nipd = binding.etNipd.text.toString()
+            val email = binding.etEmailRegister.text.toString()
+            registerViewModel.registerUser(nipd, email)
+            registerResult()
         }
-        searchUser()
+
 
     }
 
-    private fun searchUser() {
+    private fun registerResult() {
 
-        registerViewModel.searchUserResult.observe(viewLifecycleOwner) {
+        registerViewModel.registerResult.observe(viewLifecycleOwner) {
             when (it) {
                 is BaseResponse.Loading -> {
                     binding.progressBar.visibility = View.VISIBLE
@@ -53,13 +51,13 @@ class RegisterActivity : BottomSheetDialogFragment() {
 
                 is BaseResponse.Success -> {
                     binding.progressBar.visibility = View.GONE
-                    val listNama = it.data?.data?.map { it?.namaSiswa} ?: listOf()
 
-                    
-                    val adapter = ArrayAdapter(requireContext(), R.layout.simple_dropdown_item_1line, listNama)
-                    binding.etDefaultKelas.setAdapter(adapter)
-
-
+                    val email = binding.etEmailRegister.text.toString()
+                    val verificationFragment = VerificationFragment()
+                    val bundle = Bundle()
+                    bundle.putString("email", email)
+                    verificationFragment.arguments = bundle
+                    verificationFragment.show(childFragmentManager, "verif_dialog")
 
                 }
 

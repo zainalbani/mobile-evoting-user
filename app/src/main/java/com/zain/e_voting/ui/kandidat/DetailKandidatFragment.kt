@@ -1,4 +1,4 @@
-package com.zain.e_voting
+package com.zain.e_voting.ui.kandidat
 
 import android.content.Intent
 import android.net.Uri
@@ -12,7 +12,6 @@ import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.zain.e_voting.data.response.base.BaseResponse
 import com.zain.e_voting.databinding.FragmentDetailKandidatBinding
-import com.zain.e_voting.ui.kandidat.KandidatViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

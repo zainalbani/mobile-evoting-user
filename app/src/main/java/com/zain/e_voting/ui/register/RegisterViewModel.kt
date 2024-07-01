@@ -1,11 +1,14 @@
-package com.zain.e_voting.ui
+package com.zain.e_voting.ui.register
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.gson.Gson
+import com.zain.e_voting.data.request.RegisterRequest
 import com.zain.e_voting.data.response.SearhUserResponse
 import com.zain.e_voting.data.response.base.BaseResponse
 import com.zain.e_voting.data.response.base.ErrorResponse
+import com.zain.e_voting.data.response.login.LoginResponse
+import com.zain.e_voting.data.response.register.RegisterResponse
 import com.zain.e_voting.data.service.ApiService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Call
@@ -18,35 +21,35 @@ class RegisterViewModel @Inject constructor(
     private val client: ApiService
 ) : ViewModel() {
 
-    val searchUserResult: MutableLiveData<BaseResponse<SearhUserResponse>> = MutableLiveData()
+    val registerResult: MutableLiveData<BaseResponse<RegisterResponse>> = MutableLiveData()
 
-    fun searchUser(keyword: String) {
-        searchUserResult.value = BaseResponse.Loading()
+    fun registerUser(nipd: String, email: String) {
+        registerResult.value = BaseResponse.Loading()
 
-        client.searchUser(keyword)
-            .enqueue(object : Callback<SearhUserResponse> {
+        client.registerUser(RegisterRequest(nipd, email))
+            .enqueue(object : Callback<RegisterResponse> {
                 override fun onResponse(
-                    call: Call<SearhUserResponse>,
-                    response: Response<SearhUserResponse>
+                    call: Call<RegisterResponse>,
+                    response: Response<RegisterResponse>
                 ) {
                     if (response.isSuccessful) {
                         val responseBody = response.body()
-                        searchUserResult.value = BaseResponse.Success(responseBody)
+                        registerResult.value = BaseResponse.Success(responseBody)
                     } else {
                         val errorBody = response.errorBody()
                         if (errorBody != null) {
                             val errorResponse =
                                 Gson().fromJson(errorBody.charStream(), ErrorResponse::class.java)
                             val errorMessage = errorResponse.message
-                            searchUserResult.value = BaseResponse.Error(errorMessage)
+                            registerResult.value = BaseResponse.Error(errorMessage)
                         } else {
-                            searchUserResult.value = BaseResponse.Error("Unknown error occurred")
+                            registerResult.value = BaseResponse.Error("Unknown error occurred")
                         }
                     }
                 }
 
-                override fun onFailure(call: Call<SearhUserResponse>, t: Throwable) {
-                    searchUserResult.value = BaseResponse.Error("Network Error")
+                override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
+                    registerResult.value = BaseResponse.Error("Network Error")
                 }
             })
 

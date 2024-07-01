@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".ui.register.RegisterActivity">
 
     <TextView
         android:id="@+id/tv_register"
@@ -34,53 +34,53 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_register" />
 
     <TextView
-        android:id="@+id/tv_default_kelas"
+        android:id="@+id/tv_default_nipd"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppins"
-        android:text="Cari Data"
+        android:text="NIPD"
         app:layout_constraintStart_toStartOf="@+id/tv_warn_register"
         app:layout_constraintTop_toBottomOf="@+id/tv_warn_register" />
 
 
     <AutoCompleteTextView
-        android:id="@+id/et_default_kelas"
+        android:id="@+id/et_nipd"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:background="@drawable/bg_edit_text"
         android:fontFamily="@font/poppins"
         android:padding="8dp"
         android:layout_marginTop="8dp"
-        android:hint="Cari Data Anda"
+        android:hint="Masukkan NIPD"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="@+id/tv_warn_register"
-        app:layout_constraintStart_toStartOf="@+id/tv_default_kelas"
-        app:layout_constraintTop_toBottomOf="@+id/tv_default_kelas" />
+        app:layout_constraintStart_toStartOf="@+id/tv_default_nipd"
+        app:layout_constraintTop_toBottomOf="@+id/tv_default_nipd" />
 
 
     <TextView
-        android:id="@+id/tv_default_wa"
+        android:id="@+id/tv_default_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppins"
-        android:text="No Whatsapp"
-        app:layout_constraintStart_toStartOf="@+id/et_default_kelas"
-        app:layout_constraintTop_toBottomOf="@+id/et_default_kelas" />
+        android:text="Email"
+        app:layout_constraintStart_toStartOf="@+id/et_nipd"
+        app:layout_constraintTop_toBottomOf="@+id/et_nipd" />
 
     <com.zain.e_voting.utils.EditTextAuth
-        android:id="@+id/et_wa_register"
+        android:id="@+id/et_email_register"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppins"
-        android:hint="+62xxxxxxx"
+        android:hint="Masukkan Email"
         android:padding="10dp"
-        android:inputType="number"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="@+id/tv_warn_register"
         app:layout_constraintStart_toStartOf="@+id/tv_warn_register"
-        app:layout_constraintTop_toBottomOf="@+id/tv_default_wa" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_default_email" />
 
     <com.zain.e_voting.utils.PrimaryButton
         android:id="@+id/btn_register"
@@ -89,9 +89,9 @@
         android:layout_marginTop="16dp"
         android:text="REGISTER"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/et_default_kelas"
-        app:layout_constraintStart_toStartOf="@+id/et_default_kelas"
-        app:layout_constraintTop_toBottomOf="@+id/et_wa_register" />
+        app:layout_constraintEnd_toEndOf="@+id/et_nipd"
+        app:layout_constraintStart_toStartOf="@+id/et_nipd"
+        app:layout_constraintTop_toBottomOf="@+id/et_email_register" />
 
     <TextView
         android:id="@+id/tv_default_tologin"
@@ -111,8 +111,8 @@
         android:layout_marginTop="8dp"
         android:text="LOGIN"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/et_default_kelas"
-        app:layout_constraintStart_toStartOf="@+id/et_default_kelas"
+        app:layout_constraintEnd_toEndOf="@+id/et_nipd"
+        app:layout_constraintStart_toStartOf="@+id/et_nipd"
         app:layout_constraintTop_toBottomOf="@+id/tv_default_tologin" />
 
     <ProgressBar

@@ -27,20 +27,20 @@
             android:name=".ui.admin.AdminActivity"
             android:exported="false" />
         <activity
-            android:name=".HasilVotingActivity"
+            android:name=".ui.voting.HasilVotingActivity"
             android:exported="false" />
         <activity
-            android:name=".FixVotingActivity"
+            android:name=".ui.voting.FixVotingActivity"
             android:exported="false" />
         <activity
-            android:name=".KandidatActivity"
+            android:name=".ui.kandidat.KandidatActivity"
             android:exported="false" />
         <activity
             android:name=".ui.voting.VotingActivity"
             android:exported="false"
             android:launchMode="singleTop" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".ui.register.RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".ui.login.LoginActivity"

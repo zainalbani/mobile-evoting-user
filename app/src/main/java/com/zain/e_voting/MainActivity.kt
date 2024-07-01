@@ -6,8 +6,11 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.zain.e_voting.databinding.ActivityMainBinding
 import com.zain.e_voting.ui.admin.AdminActivity
+import com.zain.e_voting.ui.kandidat.KandidatActivity
 import com.zain.e_voting.ui.login.LoginActivity
 import com.zain.e_voting.ui.login.LoginViewModel
+import com.zain.e_voting.ui.register.RegisterActivity
+import com.zain.e_voting.ui.voting.HasilVotingActivity
 import com.zain.e_voting.ui.voting.VotingActivity
 import dagger.hilt.android.AndroidEntryPoint
 
