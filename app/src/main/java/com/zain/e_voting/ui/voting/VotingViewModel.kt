@@ -8,6 +8,7 @@ import com.zain.e_voting.data.response.GetAllCalonResponse
 import com.zain.e_voting.data.response.VotingResponse
 import com.zain.e_voting.data.response.base.BaseResponse
 import com.zain.e_voting.data.response.base.ErrorResponse
+import com.zain.e_voting.data.response.hasil.GetAllHasilResponse
 import com.zain.e_voting.data.service.ApiService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Call
@@ -21,6 +22,7 @@ class VotingViewModel @Inject constructor(
 ) : ViewModel() {
 
     val votingResult: MutableLiveData<BaseResponse<GetAllCalonResponse>> = MutableLiveData()
+    val hasilResult: MutableLiveData<BaseResponse<GetAllHasilResponse>> = MutableLiveData()
     val updateResult: MutableLiveData<BaseResponse<VotingResponse>> = MutableLiveData()
 
     fun getAllCalon() {
@@ -49,6 +51,35 @@ class VotingViewModel @Inject constructor(
 
                 override fun onFailure(call: Call<GetAllCalonResponse>, t: Throwable) {
                     votingResult.value = BaseResponse.Error("Network Error")
+                }
+            })
+    }
+    fun getAllHasil() {
+        hasilResult.value = BaseResponse.Loading()
+        client.getAllHasil()
+            .enqueue(object : Callback<GetAllHasilResponse> {
+                override fun onResponse(
+                    call: Call<GetAllHasilResponse>,
+                    response: Response<GetAllHasilResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val responseBody = response.body()
+                        hasilResult.value = BaseResponse.Success(responseBody)
+                    } else {
+                        val errorBody = response.errorBody()
+                        if (errorBody != null) {
+                            val errorResponse =
+                                Gson().fromJson(errorBody.charStream(), ErrorResponse::class.java)
+                            val errorMessage = errorResponse.message
+                            hasilResult.value = BaseResponse.Error(errorMessage)
+                        } else {
+                            hasilResult.value = BaseResponse.Error("Unknown error occurred")
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<GetAllHasilResponse>, t: Throwable) {
+                    hasilResult.value = BaseResponse.Error("Network Error")
                 }
             })
     }

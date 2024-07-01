@@ -9,6 +9,7 @@ import com.zain.e_voting.data.response.SearhUserResponse
 import com.zain.e_voting.data.response.VotingResponse
 import com.zain.e_voting.data.response.create.CreateKandidatResponse
 import com.zain.e_voting.data.response.delete.DeleteKandidatResponse
+import com.zain.e_voting.data.response.hasil.GetAllHasilResponse
 import com.zain.e_voting.data.response.login.LoginResponse
 import com.zain.e_voting.data.response.update.UpdateKandidatResponse
 import okhttp3.MultipartBody
@@ -32,6 +33,8 @@ interface ApiService {
 
     @GET("/getallcalon")
     fun getAllCalon(): Call<GetAllCalonResponse>
+    @GET("/getallhasil")
+    fun getAllHasil(): Call<GetAllHasilResponse>
 
     @PUT("/voting/{nipd}")
     fun updateVoting(

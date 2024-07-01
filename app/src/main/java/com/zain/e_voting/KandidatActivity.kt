@@ -27,8 +27,15 @@ class KandidatActivity : AppCompatActivity(), KandidatAdapter.ListKandidatInterf
         setContentView(binding.root)
 
         setRecycleView()
+        setButton()
 
 
+    }
+
+    private fun setButton() {
+        binding.backButton.setOnClickListener {
+            finish()
+        }
     }
 
     private fun setRecycleView() {
