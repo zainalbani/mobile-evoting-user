@@ -85,7 +85,7 @@ interface ApiService {
         @Body request: UpdateRequest
     ): Call<UpdateKandidatResponse>
 
-    @DELETE("/deletecalon/{id}")
+    @PUT("/nonaktifcalon/{id}")
     fun deleteKandidat(
         @Path("id") id: String
     ): Call<DeleteKandidatResponse>

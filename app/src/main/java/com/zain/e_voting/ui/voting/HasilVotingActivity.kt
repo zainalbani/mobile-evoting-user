@@ -1,6 +1,7 @@
 package com.zain.e_voting.ui.voting
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
+import com.zain.e_voting.MainActivity
 import com.zain.e_voting.data.response.base.BaseResponse
 import com.zain.e_voting.databinding.ActivityHasilVotingBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -32,7 +34,10 @@ class HasilVotingActivity : AppCompatActivity() {
     }
 
     private fun setButton() {
-        binding.backButton.setOnClickListener {
+        binding.btnToMain.setOnClickListener {
+            val i = Intent(this, MainActivity::class.java)
+            i.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(i)
             finish()
         }
     }

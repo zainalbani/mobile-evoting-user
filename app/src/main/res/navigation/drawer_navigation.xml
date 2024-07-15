@@ -16,6 +16,6 @@
     <fragment
         android:id="@+id/deleteKandidatFragment"
         android:name="com.zain.e_voting.ui.admin.DeleteKandidatFragment"
-        android:label="Hapus Kandidat"
+        android:label="Nonaktif Kandidat"
         tools:layout="@layout/fragment_delete_kandidat" />
 </navigation>

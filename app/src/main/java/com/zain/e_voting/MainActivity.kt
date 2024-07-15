@@ -55,10 +55,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, KandidatActivity::class.java)
             startActivity(intent)
         }
-        binding.btnVotingMain.setOnClickListener {
-            val intent = Intent(this, HasilVotingActivity::class.java)
-            startActivity(intent)
-        }
     }
 
 

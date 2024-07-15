@@ -88,6 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="REGISTER"
+        android:enabled="false"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/et_nipd"
         app:layout_constraintStart_toStartOf="@+id/et_nipd"

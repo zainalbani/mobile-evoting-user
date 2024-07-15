@@ -51,7 +51,6 @@ class DetailKandidatFragment : BottomSheetDialogFragment() {
                     binding.progressBar.visibility = View.GONE
                     val namaKetua = it.data?.data?.namaKetua.toString()
                     val namaWakil = it.data?.data?.namaWakilKetua.toString()
-                    val paslonId = it.data?.data?.paslonId.toString()
                     val visi = it.data?.data?.visi.toString()
                     val misi = it.data?.data?.misi.toString()
                     val youtubeLink = it.data?.data?.youtubeLink.toString()
@@ -62,7 +61,6 @@ class DetailKandidatFragment : BottomSheetDialogFragment() {
                     binding.tvNamaWakil.text = namaWakil
                     binding.tvVisi.text = visi
                     binding.tvMisi.text = misi
-                    binding.tvPaslonId.text = "Paslon $paslonId"
                     binding.tvYoutubeLink.setOnClickListener {
                         val youtubeIntent = Intent(Intent.ACTION_VIEW, Uri.parse(youtubeLink))
                         startActivity(youtubeIntent)

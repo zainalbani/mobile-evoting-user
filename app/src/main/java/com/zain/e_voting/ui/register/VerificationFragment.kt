@@ -45,6 +45,7 @@ class VerificationFragment : DialogFragment() {
         binding.btnToHome.setOnClickListener {
             val intent = Intent(requireContext(), MainActivity::class.java)
             startActivity(intent)
+            dismiss()
         }
     }
     fun Int.toPx(requireContext: Context): Int =

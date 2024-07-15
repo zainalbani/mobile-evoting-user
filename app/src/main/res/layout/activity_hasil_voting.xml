@@ -31,22 +31,13 @@
                 android:layout_height="?attr/actionBarSize"
                 android:background="@drawable/bg_appbar">
 
-                <ImageButton
-                    android:id="@+id/back_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layout_marginStart="8dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:src="@drawable/baseline_arrow_back_ios_24"
-                    android:visibility="visible" />
 
                 <TextView
                     android:id="@+id/toolbar_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Hasil Voting"
                     android:fontFamily="@font/poppins"
+                    android:text="Hasil Voting"
                     android:textColor="@android:color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -75,10 +66,13 @@
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/pieChart"
         android:layout_width="match_parent"
-        android:layout_marginHorizontal="16dp"
         android:layout_height="0dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_default_set_anggaran" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_default_set_anggaran"
+        tools:layout_editor_absoluteX="16dp" />
+
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
@@ -88,5 +82,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.zain.e_voting.utils.PrimaryButton
+        android:id="@+id/btn_to_main"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Kembali ke Halaman Utama"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@id/pieChart"
+        app:layout_constraintStart_toStartOf="@id/pieChart"
+        app:layout_constraintTop_toBottomOf="@id/pieChart" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
